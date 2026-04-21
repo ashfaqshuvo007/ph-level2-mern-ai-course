@@ -1,4 +1,5 @@
 //* Stack implementation using an array
+//* A LIFO (Last In First Out) data structure
 
 class Stack {
   constructor() {

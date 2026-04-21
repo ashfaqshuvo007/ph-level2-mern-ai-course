@@ -1,4 +1,5 @@
 //* Queue implementation using an array
+//* A FIFO (First In First Out) data structure
 
 class Queue {
   constructor() {
@@ -15,6 +16,7 @@ class Queue {
   //* O(1) time complexity
   dequeue() {
     if (this.isEmpty()) {
+      console.error("Queue is empty. Cannot dequeue.");
       return undefined; // or throw an error
     }
     return this.queue.shift();
