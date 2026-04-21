@@ -11,17 +11,18 @@ ph-level2-mern-ai-course/
 ├── README.md                 # This file
 ├── .git/                     # Git version control
 └── js-crash/                 # JavaScript fundamentals & concepts
-    ├── ArrayOperations/      # Advanced array manipulation techniques
-    └── DS/                   # Data structures implementation
+    ├── Module1-2-ArrayOperations/    # Advanced array manipulation techniques
+    ├── Module3-DataStructures/       # Data structures implementation
+    └── Module4-AlgorithmsInAction/   # Algorithms and advanced techniques (in progress)
 ```
 
 ---
 
 ## 📂 Folder Contents
 
-### `js-crash/ArrayOperations/`
+### `js-crash/Module1-2-ArrayOperations/`
 
-Advanced techniques for manipulating and transforming arrays in JavaScript.
+Advanced techniques for manipulating and transforming arrays in JavaScript. **Module 1 & 2**
 
 #### Files:
 
@@ -54,9 +55,9 @@ Advanced techniques for manipulating and transforming arrays in JavaScript.
 
 ---
 
-### `js-crash/DS/`
+### `js-crash/Module3-DataStructures/`
 
-Implementation of fundamental data structures with basic operations.
+Implementation of fundamental data structures with basic operations. **Module 3**
 
 #### Files:
 
@@ -89,6 +90,24 @@ Implementation of fundamental data structures with basic operations.
    - **Description**: Comparison and patterns for stateful vs stateless functions
    - **Concepts**: Pure functions, side effects, functional programming patterns
 
+6. **StackUsingLinkedList.js**
+   - **Description**: Stack implementation using a Linked List instead of an array
+   - **Advantage**: Better for understanding pointer-based structures
+   - **Concepts**: Linked List-based stacks, node traversal, LIFO with pointers
+
+7. **QueueUsingLinkedList.js**
+   - **Description**: Queue implementation using a Linked List
+   - **Advantage**: Efficient for large datasets, no need to shift elements
+   - **Concepts**: Linked List-based queues, FIFO with pointers, head/tail operations
+
+---
+
+### `js-crash/Module4-AlgorithmsInAction/`
+
+Advanced algorithms and problem-solving patterns. **Module 4** (Coming Soon)
+
+_This module is currently in progress and will include implementations of common algorithms._
+
 ---
 
 ## 🎯 Learning Objectives
@@ -120,14 +139,15 @@ By working through this repository, you will learn:
    cd ph-level2-mern-ai-course
    ```
 
-2. **Explore the files**
-   - Start with `ArrayOperations/` to understand array manipulation
-   - Move to `DS/` for data structure fundamentals
+2. **Explore the modules**
+   - Start with `Module1-2-ArrayOperations/` to understand array manipulation
+   - Move to `Module3-DataStructures/` for data structure fundamentals
+   - Explore `Module4-AlgorithmsInAction/` for advanced algorithm patterns
 
 3. **Run examples**
    ```bash
-   node js-crash/ArrayOperations/Binning.js
-   node js-crash/DS/Stack.js
+   node js-crash/Module1-2-ArrayOperations/Binning.js
+   node js-crash/Module3-DataStructures/Stack.js
    ```
 
 ---
@@ -154,10 +174,16 @@ By working through this repository, you will learn:
 ### Data Structures
 
 - Linked Lists (nodes and traversal)
-- Stacks (LIFO operations)
-- Queues (FIFO operations)
+- Stacks (LIFO operations) - Array-based and Linked List-based
+- Queues (FIFO operations) - Array-based and Linked List-based
 - Stateful vs stateless functions
 - Closures and encapsulation
+
+### Algorithms
+
+- Problem-solving patterns (Module 4 - Coming Soon)
+- Algorithm optimization techniques
+- Real-world algorithm applications
 
 ---
 
