@@ -104,9 +104,64 @@ Implementation of fundamental data structures with basic operations. **Module 3*
 
 ### `js-crash/Module4-AlgorithmsInAction/`
 
-Advanced algorithms and problem-solving patterns. **Module 4** (Coming Soon)
+Advanced algorithms and problem-solving patterns. **Module 4** ✅ Completed
 
-_This module is currently in progress and will include implementations of common algorithms._
+#### Files:
+
+1. **ValidParenthesis.js**
+   - **Description**: Validates if a string of parentheses, brackets, and braces is correctly matched and ordered
+   - **Approach**: Stack-based solution
+   - **Use Cases**: Expression validation, syntax checking, compiler parsing
+   - **Time Complexity**: O(n), **Space Complexity**: O(n)
+   - **Concepts**: Stack data structure, bracket matching, validation patterns
+
+2. **TwoSum.js**
+   - **Description**: Finds two numbers in an array that add up to a target sum
+   - **Approach**: Hash map for efficient lookup
+   - **Use Cases**: Financial calculations, pair finding algorithms
+   - **Time Complexity**: O(n), **Space Complexity**: O(n)
+   - **Concepts**: Hash maps, two-pointer technique, lookup optimization
+
+3. **PalindromeChecker.js**
+   - **Description**: Checks if a string or number is a palindrome
+   - **Approach**: Two-pointer technique from both ends
+   - **Use Cases**: String validation, data verification
+   - **Time Complexity**: O(n), **Space Complexity**: O(1)
+   - **Concepts**: String manipulation, character comparison, reverse operations
+
+4. **BinarySearch.js**
+   - **Description**: Efficient search algorithm for sorted arrays
+   - **Approach**: Divide and conquer by halving the search space
+   - **Use Cases**: Large dataset searches, efficient lookups in sorted data
+   - **Time Complexity**: O(log n), **Space Complexity**: O(1) or O(log n) for recursive
+   - **Concepts**: Divide and conquer, logarithmic search, sorted array requirements
+
+5. **SelectionSort.js**
+   - **Description**: Sorts an array by repeatedly finding the minimum element
+   - **Approach**: Divides array into sorted and unsorted portions
+   - **Time Complexity**: O(n²) all cases, **Space Complexity**: O(1)
+   - **Concepts**: Sorting algorithms, element selection, in-place sorting
+   - **Note**: Minimal memory writes, but slower than insertion sort
+
+6. **InsertionSort.js**
+   - **Description**: Sorts an array by building a sorted array one item at a time
+   - **Approach**: Adaptive sorting algorithm - faster on nearly sorted data
+   - **Time Complexity**: Best O(n), Average/Worst O(n²), **Space Complexity**: O(1)
+   - **Concepts**: Adaptive sorting, online sorting, stable sorting
+   - **Advantage**: Efficient for small arrays and partially sorted data
+
+7. **CacheUsingMap.js**
+   - **Description**: Implements a caching system using JavaScript Map with LRU (Least Recently Used) eviction
+   - **Use Cases**: Performance optimization, memoization, data caching
+   - **Concepts**: Map data structure, cache eviction policies, memory management
+   - **Time Complexity**: O(1) for get/set operations
+
+8. **MututalFriendsUsingSet.js**
+   - **Description**: Finds mutual friends between two users using Set intersection
+   - **Approach**: Set operations for efficient comparison
+   - **Use Cases**: Social network algorithms, relationship analysis, data deduplication
+   - **Time Complexity**: O(n + m), **Space Complexity**: O(min(n, m))
+   - **Concepts**: Set data structure, intersection operations, graph relationships
 
 ---
 
@@ -127,6 +182,17 @@ By working through this repository, you will learn:
 - Time and space complexity considerations
 - Common applications and use cases
 - Building blocks for more complex algorithms
+
+### Algorithms
+
+- Classic problem-solving patterns and approaches
+- Stack-based algorithms (parenthesis matching, expression evaluation)
+- Search algorithms (binary search, linear search)
+- Sorting algorithms (selection sort, insertion sort, comparison and analysis)
+- Hash-based optimizations (hash maps for lookups)
+- Set operations and data deduplication
+- Cache design patterns and memory optimization
+- Time and space complexity trade-offs
 
 ---
 
