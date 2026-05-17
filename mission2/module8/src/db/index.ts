@@ -1,0 +1,30 @@
+import { Pool } from "pg";
+import config from "../config";
+
+const connString = config.dbConnString;
+
+//* DB connection
+export const pool = new Pool({
+  connectionString: connString,
+});
+
+//*Create users table
+export const initDB = async () => {
+  try {
+    await pool.query(`
+        CREATE TABLE IF NOT EXISTS users (
+            id SERIAL PRIMARY KEY,
+            name VARCHAR(20) NOT NULL,
+            email VARCHAR(20) UNIQUE NOT NULL,
+            password VARCHAR(20) NOT NULL,
+            is_active BOOLEAN DEFAULT true,
+            age INT,
+
+            created_at TIMESTAMP DEFAULT NOW(),
+            updated_at TIMESTAMP DEFAULT NOW()
+        );`);
+    console.log("DB connected Successfully!");
+  } catch (error) {
+    console.log(error);
+  }
+};
