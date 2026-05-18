@@ -4,6 +4,8 @@ import { userService } from "./user.service";
 const createUser = async (req: Request, res: Response) => {
   try {
     const result = await userService.insertUserIntoDB(req.body);
+    delete result.rows[0].password;
+
     res.status(201).json({
       success: true,
       message: "Users created Successfully!",
@@ -21,10 +23,11 @@ const createUser = async (req: Request, res: Response) => {
 const getAllUsers = async (req: Request, res: Response) => {
   try {
     const result = await userService.getUsersFromDB();
+    const sanitizedResult = result.rows.map(({ password, ...row }) => row);
     res.status(200).json({
       success: true,
       message: "Users retrieved Successfully!",
-      data: result.rows,
+      data: sanitizedResult,
     });
   } catch (error: any) {
     res.status(500).json({
@@ -39,6 +42,7 @@ const getSingleUser = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
     const result = await userService.getSingleUserFromDB(id as string);
+    delete result.rows[0].password;
     if (result.rows.length != 0) {
       res.status(200).json({
         success: true,
@@ -65,6 +69,7 @@ const updateUser = async (req: Request, res: Response) => {
   const { id } = req.params;
   try {
     const result = await userService.updateUserIntoDB(req.body, id as string);
+    delete result.rows[0].password;
     if (result.rowCount != 0) {
       res.status(200).json({
         success: true,

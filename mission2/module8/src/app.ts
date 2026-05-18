@@ -5,6 +5,8 @@ import express, {
 } from "express";
 import config from "./config";
 import { userRoute } from "./user/user.route";
+import { profileRouter } from "./profile/profile.route";
+import { authRouter } from "./auth/auth.route";
 
 const app: Application = express();
 
@@ -23,7 +25,12 @@ app.get(BASE_URL + "/", (req: Request, res: Response) => {
   });
 });
 
+app.use(BASE_URL + "/auth", authRouter);
+
 //* User Routes
 app.use(BASE_URL + "/users", userRoute);
+
+//* Profile Routes
+app.use(BASE_URL + "/profiles", profileRouter);
 
 export default app;

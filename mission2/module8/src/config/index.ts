@@ -10,6 +10,7 @@ const config = {
   apiVersion: process.env.API_VERSION,
   baseUrl: `/${process.env.BASE_URL}/${process.env.API_VERSION}`,
   dbConnString: process.env.DB_CONNECTION_STRING,
+  jwtSecret: process.env.JWT_SECRET,
 };
 
 export default config;
