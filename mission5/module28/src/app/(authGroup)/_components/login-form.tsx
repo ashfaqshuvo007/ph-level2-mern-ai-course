@@ -1,3 +1,5 @@
+"use client"
+
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import {
@@ -14,11 +16,28 @@ import {
   FieldLabel,
 } from "@/components/ui/field"
 import { Input } from "@/components/ui/input"
+import { loginAction } from "../_actions/authActions"
+import { useActionState, useEffect } from "react"
+import { toast } from "sonner"
+// import { useRouter } from "next/navigation"
 
 export function LoginForm({
   className,
   ...props
 }: React.ComponentProps<"div">) {
+  const [state, action, pending] = useActionState(loginAction, false)
+  // const router = useRouter()
+  useEffect(() => {
+    if (!state) return;
+    if (state.success){
+      toast.success(state.message || "Login Successful!")
+      // router.push("/dashboard")
+    }
+    if(!state.success){
+      toast.error(state.message || "Login Failed!")
+    }
+
+  },[state])
   return (
     <div className={cn("flex flex-col gap-6", className)} {...props}>
       <Card>
@@ -29,14 +48,15 @@ export function LoginForm({
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <form>
+          <form action={action} >
             <FieldGroup>
               <Field>
                 <FieldLabel htmlFor="email">Email</FieldLabel>
                 <Input
                   id="email"
                   type="email"
-                  placeholder="m@example.com"
+                  name="email"
+                  placeholder="mail@example.com"
                   required
                 />
               </Field>
@@ -50,13 +70,17 @@ export function LoginForm({
                     Forgot your password?
                   </a>
                 </div>
-                <Input id="password" type="password" required />
+                <Input id="password" name="password" type="password" required />
               </Field>
               <Field>
-                <Button type="submit">Login</Button>
-                <Button variant="outline" type="button">
-                  Login with Google
+                <Button type="submit">
+                  {
+                    pending ? "Submitting....." : "Login"
+                  }
                 </Button>
+                {/* <Button variant="outline" type="button">
+                  Login with Google
+                </Button> */}
                 <FieldDescription className="text-center">
                   Don&apos;t have an account? <a href="#">Sign up</a>
                 </FieldDescription>
