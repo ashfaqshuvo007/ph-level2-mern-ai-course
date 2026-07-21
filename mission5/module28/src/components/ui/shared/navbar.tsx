@@ -13,9 +13,7 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { logout } from "@/service/logout"
-import { useEffect, useState } from "react"
 import { toast } from "sonner"
-import { useRouter } from "next/navigation"
 
 const menuItems = [
   { label: "Home", href: "/" },
@@ -46,14 +44,12 @@ type NavbarProps = {
 }
 
 export function Navbar({user}: NavbarProps) {
-    const router = useRouter()
     const handleUserMenuAction = async (action: string) => {
         console.log(`User menu action: ${action}`)
 
         if (action === "logout") {
-            await logout()
             toast.success("User logged out Successfully!")
-            router.push("/login")
+            await logout()
         }
     }
 
@@ -63,7 +59,6 @@ export function Navbar({user}: NavbarProps) {
         {/* Logo */}
         <Link href="/" className="flex items-center gap-2">
           <span className="flex h-8 w-8 items-center justify-center rounded-md bg-primary text-primary-foreground font-bold">
-            A
           </span>
           <span className="text-lg font-semibold tracking-tight">AlgoDevs Inc</span>
         </Link>
