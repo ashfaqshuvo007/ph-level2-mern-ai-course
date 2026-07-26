@@ -13,7 +13,7 @@ export const getMe = async () => {
       message: "User not logged in!",
     };
   }
-  const res = await fetch(`${process.env.BACKEND_API_URL}/api/auth/me`, {
+  const res = await fetch(`${process.env.BACKEND_API_URL}/api/users/me`, {
     headers: {
       Authorization: `${accessToken}`,
     },

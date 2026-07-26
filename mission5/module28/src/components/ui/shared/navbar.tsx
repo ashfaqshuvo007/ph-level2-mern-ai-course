@@ -17,16 +17,16 @@ import { toast } from "sonner"
 
 const menuItems = [
   { label: "Home", href: "/" },
-  { label: "Products", href: "/products" },
   { label: "Pricing", href: "/pricing" },
-  { label: "About", href: "/about" },
-  { label: "Contact", href: "/contact" },
+  { label: "News", href: "/news" },
+  { label: "Premium", href: "/premium" },
 ]
 
 type IUser = {
     success: boolean;
     message: string;
     data: {
+      profile: {
         id: string;
         name: string;
         email: string;
@@ -36,6 +36,7 @@ type IUser = {
         updatedAt: string;
         reviews: any[];
         orders: any[];
+      }
     };  
 
 }
@@ -91,8 +92,8 @@ export function Navbar({user}: NavbarProps) {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end" className="w-56">
               <DropdownMenuLabel className="flex flex-col gap-1">
-                <span className="text-sm font-medium">{user.data?.name || null}</span>
-                <span className="text-xs font-normal text-muted-foreground">{user.data?.email || null}</span>
+                <span className="text-sm font-medium">{user.data.profile.name || null}</span>
+                <span className="text-xs font-normal text-muted-foreground">{user.data.profile.email || null}</span>
               </DropdownMenuLabel>
               <DropdownMenuSeparator />
               <DropdownMenuItem>

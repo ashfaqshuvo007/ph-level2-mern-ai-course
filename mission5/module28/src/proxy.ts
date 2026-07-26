@@ -14,11 +14,9 @@ const REFRESH_SECRET = process.env.REFRESH_SECRET as string;
 export async function proxy(request: NextRequest) {
   const pathName = request.nextUrl.pathname;
 
-  //* Approach 1: Getting access token from cookieStore NEXTJS
   const cookieStore = await cookies();
   //   const accessToken = cookieStore.get("accessToken");
 
-  //* Approach 2: From request header
   let accessToken = request.cookies.get("accessToken")?.value;
   const refreshToken = request.cookies.get("refreshToken")?.value;
 
@@ -67,10 +65,10 @@ export async function proxy(request: NextRequest) {
   const userRole = (decodedAccessToken.data as JwtPayload).role;
 
   if (isAuthRoute) {
-    if (userRole === "CUSTOMER") {
+    if (userRole === "USER") {
       return NextResponse.redirect(new URL("/dashboard", request.url));
     }
-    if (userRole === "PROVIDER") {
+    if (userRole === "AUTHOR") {
       return NextResponse.redirect(new URL("/author-dashboard", request.url));
     }
     if (userRole === "ADMIN") {
@@ -82,7 +80,7 @@ export async function proxy(request: NextRequest) {
     !isPublicRoute &&
     !isAuthRoute &&
     pathName.startsWith("/dashboard") &&
-    userRole !== "CUSTOMER"
+    userRole !== "USER"
   ) {
     return NextResponse.redirect(new URL("/not-found", request.url));
   }
@@ -100,7 +98,7 @@ export async function proxy(request: NextRequest) {
     !isPublicRoute &&
     !isAuthRoute &&
     pathName.startsWith("/author-dashboard") &&
-    userRole !== "PROVIDER"
+    userRole !== "AUTHOR"
   ) {
     return NextResponse.redirect(new URL("/not-found", request.url));
   }
